@@ -51,14 +51,18 @@
   var PT = "128842497";
   var params = new URLSearchParams(location.search);
   var ct = (params.get("ct") || "ig").replace(/[^a-zA-Z0-9._-]/g, "");
+
   var store = "https://apps.apple.com/us/app/textrizz-stop-getting-ghosted/id6764484157"
+            + "?pt=" + PT + "&mt=8&ct=" + ct;
+  var itms  = "itms-apps://apps.apple.com/us/app/id6764484157"
             + "?pt=" + PT + "&mt=8&ct=" + ct;
 
   document.getElementById("store").href = store;
 
-  // Try to open the App Store immediately; if the in-app browser blocks it,
-  // the person is still on this page with the button as fallback.
-  location.replace(store);
+  // Try launching the App Store app directly (often works inside IG):
+  location.href = itms;
+  // Fallback: normal web redirect shortly after, if the scheme was blocked
+  setTimeout(function(){ location.replace(store); }, 1200);
 })();
 </script>
 <noscript>
