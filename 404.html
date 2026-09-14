@@ -41,8 +41,6 @@
   .n{flex:0 0 34px;height:34px;border-radius:50%;background:#EFEAFF;color:#6A57E8;
      display:flex;align-items:center;justify-content:center;font-weight:700}
   .step b{font-weight:700}
-  .fallback{margin-top:30px;color:var(--dim);font-size:15px;text-align:center}
-  .fallback a{color:var(--accent);text-decoration:none;font-weight:600}
   .badge{
     display:flex;align-items:center;gap:12px;
     background:#FFFFFF;color:#0B0B0F;
@@ -94,7 +92,6 @@
       <div class="step"><span class="n">2</span><span>Select <b>"Open in browser"</b></span></div>
       <div class="step"><span class="n">3</span><span>You'll be automatically redirected to download the app</span></div>
     </div>
-    <p class="fallback">Or search <b>TextRizz</b> on the App Store — <a id="direct" href="#">open it directly</a></p>
   </div>
 
 <script>
@@ -102,7 +99,7 @@
   var PT = "128842497";
 
   var params = new URLSearchParams(location.search);
-  var m = location.pathname.match(/^\/c\/([^\/?#]+)/i);
+  var m = location.pathname.match(/^\/(?:c|ig)\/([^\/?#]+)/i);
   var ct = ((m && m[1]) || params.get("ct") || "direct").replace(/[^a-zA-Z0-9._-]/g, "");
 
   var ua = navigator.userAgent || "";
@@ -120,7 +117,6 @@
            || isIG
            || /TikTok|musical_ly|Bytedance|Snapchat|Twitter|Line\/|wv\)/i.test(ua);
 
-  document.getElementById("direct").href = store;
   document.getElementById("storeIG").href = store;
 
   if (inApp) {
