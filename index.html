@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TextRizz – Stop Getting Ghosted</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{height:100%}
+  body{
+    background:#07050F;
+    color:#F4F2FA;
+    font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text",Segoe UI,Roboto,sans-serif;
+    min-height:100%;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    padding:32px 24px;
+    position:relative;
+    overflow-x:hidden;
+    background-image:
+      radial-gradient(55% 38% at 50% 8%, rgba(139,123,255,.20), transparent 70%),
+      radial-gradient(45% 32% at 85% 95%, rgba(255,105,180,.14), transparent 70%),
+      linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
+    background-size:auto,auto,44px 44px,44px 44px;
+  }
+  .wordmark{
+    font-size:34px;font-weight:800;font-style:italic;letter-spacing:.02em;
+    background:linear-gradient(92deg,#E3A6FF,#FF6FB5);
+    -webkit-background-clip:text;background-clip:text;
+    -webkit-text-fill-color:transparent;
+    margin-bottom:34px;
+  }
+  .emoji{font-size:56px;margin-bottom:26px;filter:drop-shadow(0 0 24px rgba(255,105,180,.45))}
+  h1{
+    font-size:56px;font-weight:800;line-height:1.05;text-align:center;
+    letter-spacing:-.01em;
+  }
+  h1 .g{
+    background:linear-gradient(92deg,#B79CFF,#FF6FB5);
+    -webkit-background-clip:text;background-clip:text;
+    -webkit-text-fill-color:transparent;
+  }
+  .tag{color:#A9A3BD;font-size:19px;margin:20px 0 44px;text-align:center}
+  .badges{display:flex;flex-direction:column;gap:16px;align-items:center}
+  .badge{
+    display:flex;align-items:center;gap:12px;
+    border-radius:14px;padding:13px 26px;
+    text-decoration:none;font-size:15px;line-height:1.2;
+    min-width:230px;justify-content:center;
+  }
+  .badge.ios{background:#FFFFFF;color:#0B0B0F;box-shadow:0 14px 50px rgba(139,123,255,.22)}
+  .badge.play{background:#000;color:#fff;border:1.5px solid rgba(255,255,255,.85)}
+  .badge svg{width:28px;height:28px;flex:0 0 auto}
+  .badge .txt small{display:block;font-size:10.5px;font-weight:500;letter-spacing:.04em}
+  .badge.ios .txt small{color:#3C3C43}
+  .badge.play .txt small{color:#ddd;text-transform:uppercase}
+  .badge .txt b{font-size:19px;font-weight:700}
+  footer{
+    position:absolute;bottom:22px;left:0;right:0;
+    display:flex;justify-content:center;gap:28px;
+  }
+  footer a{color:#6E6884;font-size:15px;text-decoration:none}
+  @media(max-width:420px){h1{font-size:44px}}
+</style>
+</head>
+<body>
+  <div class="wordmark">TextRizz</div>
+  <div class="emoji">💬</div>
+  <h1>Stop Getting<br><span class="g">Ghosted.</span></h1>
+  <p class="tag">The AI that texts better than you.</p>
+
+  <div class="badges">
+    <a class="badge ios" href="https://apps.apple.com/us/app/textrizz-stop-getting-ghosted/id6764484157">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#000" d="M17.05 12.54c-.03-2.89 2.36-4.27 2.47-4.34-1.35-1.97-3.44-2.24-4.18-2.27-1.78-.18-3.47 1.05-4.37 1.05-.9 0-2.29-1.02-3.77-.99-1.94.03-3.73 1.13-4.72 2.87-2.01 3.49-.51 8.66 1.44 11.5.96 1.39 2.1 2.95 3.6 2.89 1.45-.06 1.99-.93 3.74-.93s2.24.93 3.77.9c1.56-.03 2.54-1.41 3.49-2.81 1.1-1.61 1.55-3.17 1.57-3.25-.03-.02-3.01-1.16-3.04-4.62zM14.16 4.06c.8-.97 1.34-2.32 1.19-3.66-1.15.05-2.55.77-3.38 1.74-.74.85-1.39 2.22-1.22 3.53 1.29.1 2.6-.65 3.41-1.61z"/></svg>
+      <span class="txt"><small>Download on the</small><b>App Store</b></span>
+    </a>
+    <a class="badge play" href="https://play.google.com/store/apps/details?id=com.growthvaultllc.rizzai&hl=en_US">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#00E3A0" d="M3.6 1.8c-.34.36-.54.9-.54 1.6v17.2c0 .7.2 1.24.55 1.6l.09.08 9.64-9.64v-.23L3.7 1.72l-.1.08z"/><path fill="#FFD400" d="M16.56 15.86l-3.22-3.22v-.23l3.22-3.22.07.04 3.81 2.17c1.09.61 1.09 1.62 0 2.24l-3.81 2.17-.07.05z"/><path fill="#FF3A44" d="M16.63 15.81L13.34 12.5 3.6 22.2c.36.38.95.42 1.62.05l11.41-6.44z"/><path fill="#00A0FF" d="M16.63 9.2L5.22 2.76c-.67-.38-1.26-.33-1.62.05l9.74 9.7 3.29-3.3z"/></svg>
+      <span class="txt"><small>Get it on</small><b>Google Play</b></span>
+    </a>
+  </div>
+
+  <footer>
+    <a href="mailto:support.rizzai@gmail.com">Support</a>
+    <a href="https://rizzai.life/privacy.html">Terms</a>
+    <a href="https://rizzai.life/privacy.html">Privacy</a>
+  </footer>
+</body>
+</html>
