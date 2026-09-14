@@ -98,6 +98,11 @@
   if (inApp) {
     document.getElementById("loading").style.display = "none";
     document.getElementById("escape").style.display = "flex";
+    // Attempt direct App Store launch — works in IG's webview, silently fails in TikTok
+    if (!isAndroid) {
+      location.href = "itms-apps://apps.apple.com/us/app/id6764484157"
+                    + "?pt=" + PT + "&mt=8&ct=" + ct;
+    }
   } else {
     location.replace(store);
   }
