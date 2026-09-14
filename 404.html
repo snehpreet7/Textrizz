@@ -98,10 +98,9 @@
   if (inApp) {
     document.getElementById("loading").style.display = "none";
     document.getElementById("escape").style.display = "flex";
-    // Attempt direct App Store launch — works in IG's webview, silently fails in TikTok
-    if (!isAndroid) {
-      location.href = "itms-apps://apps.apple.com/us/app/id6764484157"
-                    + "?pt=" + PT + "&mt=8&ct=" + ct;
+    if (/Instagram|FBAN|FBAV/i.test(ua) && !isAndroid) {
+      // IG's webview converts an apps.apple.com navigation into its native App Store sheet
+      setTimeout(function(){ location.href = store; }, 300);
     }
   } else {
     location.replace(store);
