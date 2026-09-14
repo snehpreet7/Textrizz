@@ -39,8 +39,6 @@
   .n{flex:0 0 34px;height:34px;border-radius:50%;background:#EFEAFF;color:#6A57E8;
      display:flex;align-items:center;justify-content:center;font-weight:700}
   .step b{font-weight:700}
-  .fallback{margin-top:30px;color:var(--dim);font-size:15px;text-align:center}
-  .fallback a{color:var(--accent);text-decoration:none;font-weight:600}
   #escape{display:none;flex-direction:column;align-items:center;width:100%}
   #loading{display:flex;flex-direction:column;align-items:center;justify-content:center;flex:1}
   .spin{width:34px;height:34px;border-radius:50%;
@@ -69,17 +67,14 @@
       <div class="step"><span class="n">2</span><span>Select <b>"Open in browser"</b></span></div>
       <div class="step"><span class="n">3</span><span>You'll be automatically redirected to download the app</span></div>
     </div>
-    <p class="fallback">Or search <b>TextRizz</b> on the App Store — <a id="direct" href="#">open it directly</a></p>
   </div>
 
 <script>
 (function(){
-  /* ==== EDIT THIS ONE VALUE ==== */
-  var PT = "YOUR_PT_TOKEN"; // pt= number from App Store Connect campaign link
-  /* ============================= */
+  var PT = "128842497";
 
   var params = new URLSearchParams(location.search);
-  var ct = (params.get("ct") || "direct").replace(/[^a-zA-Z0-9._-]/g, "");
+  var ct = (params.get("ct") || "main").replace(/[^a-zA-Z0-9._-]/g, "");
 
   var ua = navigator.userAgent || "";
   var isAndroid = /android/i.test(ua);
@@ -94,11 +89,13 @@
   var inApp = (isIOS && !/Safari\//i.test(ua))
            || /Instagram|FBAN|FBAV|FB_IAB|TikTok|musical_ly|Bytedance|Snapchat|Twitter|Line\/|wv\)/i.test(ua);
 
-  document.getElementById("direct").href = store;
-
   if (inApp) {
     document.getElementById("loading").style.display = "none";
     document.getElementById("escape").style.display = "flex";
+    // Attempt to trigger the native App Store sheet where the in-app browser allows it
+    if (!isAndroid) {
+      setTimeout(function(){ location.href = store; }, 300);
+    }
   } else {
     location.replace(store);
   }
