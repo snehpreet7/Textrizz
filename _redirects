@@ -1,3 +1,0 @@
-/c/:name  /404.html?ct=:name  200
-/ig/:name /404.html?ct=:name  200
-/:name    /404.html?ct=:name  200
