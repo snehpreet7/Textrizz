@@ -100,7 +100,9 @@
 
   var params = new URLSearchParams(location.search);
   var m = location.pathname.match(/^\/(?:c|ig)\/([^\/?#]+)/i);
-  var ct = ((m && m[1]) || params.get("ct") || "direct").replace(/[^a-zA-Z0-9._-]/g, "");
+
+  // Query param checked FIRST so _redirects ?ct=name works correctly
+  var ct = (params.get("ct") || (m && m[1]) || "direct").replace(/[^a-zA-Z0-9._-]/g, "");
 
   var ua = navigator.userAgent || "";
   var isAndroid = /android/i.test(ua);
@@ -123,7 +125,6 @@
     document.getElementById("loading").style.display = "none";
     if (isIG) {
       document.getElementById("escapeIG").style.display = "flex";
-      // IG's webview often converts this navigation into its native App Store sheet
       if (!isAndroid) setTimeout(function(){ location.href = store; }, 300);
     } else {
       document.getElementById("escapeTT").style.display = "flex";
