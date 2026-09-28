@@ -64,7 +64,7 @@
 </head>
 <body>
 
-  <div id="loading" aria-label="Redirecting to the app store">
+<div id="loading" aria-label="Redirecting to the app store">
     <div class="spin"></div>
   </div>
 
@@ -121,7 +121,7 @@
 
   document.getElementById("storeIG").href = store;
 
-  if (inApp) {
+if (inApp) {
     document.getElementById("loading").style.display = "none";
     if (isIG) {
       document.getElementById("escapeIG").style.display = "flex";
@@ -130,7 +130,9 @@
       document.getElementById("escapeTT").style.display = "flex";
     }
   } else {
-    location.replace(store);
+    // Safari / normal browser: show same as Instagram (download button, no steps)
+    document.getElementById("loading").style.display = "none";
+    document.getElementById("escapeIG").style.display = "flex";
   }
 })();
 </script>
