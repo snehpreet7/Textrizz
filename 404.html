@@ -130,9 +130,10 @@ if (inApp) {
       document.getElementById("escapeTT").style.display = "flex";
     }
   } else {
-    // Safari / normal browser: show same as Instagram (download button, no steps)
+    // Safari / normal browser: show page briefly then auto-redirect to App Store
     document.getElementById("loading").style.display = "none";
     document.getElementById("escapeIG").style.display = "flex";
+    setTimeout(function(){ location.replace(store); }, 1500);
   }
 })();
 </script>
