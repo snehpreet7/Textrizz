@@ -112,7 +112,8 @@
   };
 
   var params = new URLSearchParams(location.search);
-  var m = location.pathname.match(/^\/(?:c|ig)\/([^\/?#]+)/i);
+  // Reads name from /c/name, /ig/name, or /name
+  var m = location.pathname.match(/^\/(?:(?:c|ig)\/)?([^\/?#]+)/i);
 
   // Query param checked FIRST so _redirects ?ct=name works correctly
   var ct = (params.get("ct") || (m && m[1]) || "direct").replace(/[^a-zA-Z0-9._-]/g, "");
